@@ -1,2 +1,2 @@
 # FungineerGame
-A Game
+A FUN Game
