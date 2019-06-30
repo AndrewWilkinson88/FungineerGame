@@ -17,20 +17,20 @@ public class HexMapView : MonoBehaviour
 
     public TileLibrary tiles;
 
+    public float tileSize;
+    private float lengthToEdge;
+    private float xSpace;
+    private float ySpace;
+
     private HexMapModel _map;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //Example of generic JSON parsing
-        /*var reader = new JsonReader();
-        dynamic output = reader.Read(mapFile.text);
-        foreach (string key in output.Keys)
-        {
-            Debug.Log("key: " + key);
-        }
-        Debug.Log(output["tiles"][0][0][0]);*/
 
+        xSpace =  tileSize * (float)Math.Sqrt(3);
+        ySpace = tileSize * 2;
 
         //Attempt at explicit data parsing
         var reader = new JsonReader(new DataReaderSettings(new DataContractResolverStrategy()));
@@ -47,10 +47,13 @@ public class HexMapView : MonoBehaviour
         
         for(int x = 0; x < map.tiles.Length; x++)
         {
-            for(int y = 0; y < map.tiles[x].Length; y++)
+            for(int z = 0; z < map.tiles[x].Length; z++)
             {
-                for(int h = 0; h < map.tiles[x][y].Length; h++)
+                for(int h = 0; h < map.tiles[x][z].Length; h++)
                 {
+                    curSpaceView = Instantiate<HexSpaceView>(tiles.library[map.tiles[x][z][h]], this.transform);
+                    curSpaceView.transform.localPosition = new Vector3(x * xSpace, h * 0.5f, x * xSpace/2.0f + z * ySpace);
+                    //curSpaceView.transform.localPosition = new Vector3(x * 1.5f, h * 0.5f, x * .85f + z * 1.5f);
                 }
             }
         }
