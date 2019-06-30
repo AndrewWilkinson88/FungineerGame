@@ -1,12 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+
+using System.Runtime.Serialization;
+
+[DataContract]
 public class AxialCoordinate
 {
     //axial
-    public  int x;
-    public int z;
+    [DataMember(Name = "x")] public int x { get; set; }
+    [DataMember(Name = "z")] public int z { get; set; }
     //height
-    public int h;
+    [DataMember(Name = "h")] public int h { get; set; }
 
     public AxialCoordinate(int x, int z, int h)
     {

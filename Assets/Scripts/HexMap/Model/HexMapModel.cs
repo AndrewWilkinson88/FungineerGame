@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class HexMapModel 
 {
     public int mapXSize;
@@ -10,11 +9,10 @@ public class HexMapModel
     public int mapHeight;
     private  List<HexSpaceModel>[,] _map;
 
-    public HexMapModel(int mapXSize, int mapYSize, int mapHeight)
+    public HexMapModel(int mapXSize, int mapYSize)
     {
         this.mapXSize = mapXSize;
         this.mapYSize = mapYSize;
-        this.mapHeight = mapHeight;
         _map = new List<HexSpaceModel>[mapXSize, mapYSize];
     }    
 
