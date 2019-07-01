@@ -324,8 +324,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapFile: {fileID: 4900000, guid: aff1328556ca98b45a89a91cfafd44ca, type: 3}
-  tiles: {fileID: 9088450593342530062, guid: 59a099154b372e4459696538ef251d3c, type: 3}
-  tileSize: 1
+  spaceLibrary: {fileID: 9088450593342530062, guid: 59a099154b372e4459696538ef251d3c,
+    type: 3}
+  tileSize: 0.8
 --- !u!4 &1703748539
 Transform:
   m_ObjectHideFlags: 0

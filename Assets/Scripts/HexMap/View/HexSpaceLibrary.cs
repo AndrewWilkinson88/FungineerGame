@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileLibrary : MonoBehaviour
+public class HexSpaceLibrary : MonoBehaviour
 {
     public List<HexSpaceView> library;
 

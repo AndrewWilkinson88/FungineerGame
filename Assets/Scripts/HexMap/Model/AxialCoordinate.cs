@@ -26,4 +26,20 @@ public class AxialCoordinate
                 this.h
             );
     }
+
+    public static AxialCoordinate operator +(AxialCoordinate a)
+    {
+        return new AxialCoordinate(-a.x, -a.z, -a.h);
+    }
+
+    public static AxialCoordinate operator -(AxialCoordinate a1, AxialCoordinate a2)
+    {
+        return new AxialCoordinate(a1.x - a2.x, a1.z - a2.z, a1.h - a2.h);
+    }
+
+    public static AxialCoordinate operator + (AxialCoordinate a1, AxialCoordinate a2)
+    {
+        AxialCoordinate a3 = new AxialCoordinate(a1.x+a2.x, a1.z+a2.z, a1.h+a2.h);
+        return a3;
+    }
 }
