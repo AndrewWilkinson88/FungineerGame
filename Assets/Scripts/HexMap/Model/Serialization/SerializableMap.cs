@@ -8,5 +8,4 @@ using System.Runtime.Serialization;
 public class SerializableMap 
 {
     [DataMember(Name = "tiles")] public int[][][] tiles { get; set; }
-    [DataMember(Name = "playerStart")] public AxialCoordinate playerStart { get; set; }
 }

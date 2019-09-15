@@ -41,9 +41,12 @@ public class HexMapModel
         {
             for(int z = 0; z < _map.GetLength(1); z++)
             {
-                for(int h = 0; h < _map[x,z].Count; h++)
+                if (_map[x, z] != null)
                 {
-                    _map[x, z][h].CalculateMoveDirections();
+                    for (int h = 0; h < _map[x, z].Count; h++)
+                    {
+                        _map[x, z][h].CalculateMoveDirections();
+                    }
                 }
             }
         }
@@ -52,17 +55,19 @@ public class HexMapModel
     public AxialCoordinate GetMovementSpaceFromAxial(AxialCoordinate a)
     {
         //First do the obvious out of bounds checks
-        if(a.x < 0 || a.x >= _map.GetLength(0)
+        if (a.x < 0 || a.x >= _map.GetLength(0)
             || a.z < 0 || a.z >= _map.GetLength(1)
-            || a.h < 0 )
+            || a.h < 0 || _map[a.x, a.z] == null)
         {
-            //Next, if we're above the ground significantly in that direction, 
-            //skip to the top of that stack to start the search for a valid square
-            if(a.h >= _map[a.x, a.z].Count)
-            {
-                a.h = _map[a.x, a.z].Count - 1;
-            }
+            return null;
         }
+        //Next, if we're above the ground significantly in that direction, 
+        //skip to the top of that stack to start the search for a valid square
+        if(a.h >= _map[a.x, a.z].Count)
+        {
+            a.h = _map[a.x, a.z].Count - 1;
+        }
+        
 
         return a;
     }

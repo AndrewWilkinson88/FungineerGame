@@ -10,10 +10,9 @@ using JsonFx.Serialization.Resolvers;
 public class HexMapView : MonoBehaviour
 {
 
-
     //TODO this should eventually be passed into the scene
     //and may not be a TextAsset but actual JSON or a link to the location of a map.
-    public TextAsset mapFile;
+    //public TextAsset mapFile;
 
     public HexSpaceLibrary spaceLibrary;
 
@@ -28,6 +27,12 @@ public class HexMapView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.Initialize("testMap");
+    }
+
+    public void Initialize(string mapName)
+    {
+        TextAsset mapFile = Resources.Load<TextAsset>("Maps/" + mapName);
 
         xSpace =  tileSize * (float)Math.Sqrt(3);
         ySpace = tileSize * 2;

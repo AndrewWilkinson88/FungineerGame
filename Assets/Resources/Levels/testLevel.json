@@ -1,0 +1,19 @@
+{
+	"map":"testMap",
+
+	"playerStart":{
+		"x": 3,
+		"z": 3,
+		"h": 3
+	},
+	"enemies": [
+		{
+			"unit": "enemies/goblin",
+			"position": {
+				"x": 2,
+				"z": 3,
+				"h": 2
+			}
+		}
+	]
+}
